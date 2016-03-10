@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:converters="clr-namespace:CompanySearch.Converters;assembly=CompanySearch"
+		x:Class="CompanySearch.Pages.CompanyPage"
+		Title="{Binding Name}">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:CompanyDomainConverter x:Key="domainConverter"/>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+		<WebView Source="{Binding Domain, Converter={StaticResource domainConverter}}" />
+	</ContentPage.Content>
+</ContentPage>

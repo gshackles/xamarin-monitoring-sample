@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="CompanySearch.Pages.SearchPage"
+		xmlns:searchBehaviors="clr-namespace:CompanySearch.Behaviors;assembly=CompanySearch"
+		xmlns:converters="clr-namespace:CompanySearch.Converters;assembly=CompanySearch"
+		Title="Company Search">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:InvertedBooleanConverter x:Key="invertedBoolean"/>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+		<StackLayout Padding="10" Spacing="10">
+
+			<Entry x:Name="Query" Text="{Binding Query}" HorizontalOptions="FillAndExpand">
+				<Entry.Behaviors>
+					<searchBehaviors:EntryCompletedBehavior Command="{Binding SearchCommand}" />
+				</Entry.Behaviors>
+			</Entry>
+
+			<ListView 
+					x:Name="Companies" 
+					ItemsSource="{Binding Companies}" 
+					RowHeight="85" 
+					ItemSelected="onCompanySelected"
+					IsVisible="{Binding IsSearching, Converter={StaticResource invertedBoolean}}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						
+						<ImageCell 
+							Text="{Binding Name}" 
+							Detail="{Binding Domain}" 
+							ImageSource="{Binding Logo}" />
+						
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
