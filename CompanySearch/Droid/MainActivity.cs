@@ -17,8 +17,8 @@ namespace CompanySearch.Droid
 		{
 			base.OnCreate (savedInstanceState);
 
-            HockeyApp.CrashManager.Register (this, "YOUR-HOCKEYAPP-APPID", new CompanySearchCrashManagerListener());
-            HockeyApp.UpdateManager.Register (this, "YOUR-HOCKEYAPP-APPID");
+            HockeyApp.Android.CrashManager.Register (this, "YOUR-HOCKEYAPP-APPID", new CompanySearchCrashManagerListener());
+            HockeyApp.Android.UpdateManager.Register (this, "YOUR-HOCKEYAPP-APPID");
 
             MetricService.Instance.Initialize(TargetPlatform.Android);
 
@@ -26,7 +26,7 @@ namespace CompanySearch.Droid
 			LoadApplication (new App ());
 		}
 
-        private class CompanySearchCrashManagerListener : HockeyApp.CrashManagerListener
+        private class CompanySearchCrashManagerListener : HockeyApp.Android.CrashManagerListener
         {
             public override bool ShouldAutoUploadCrashes() => true;
         }

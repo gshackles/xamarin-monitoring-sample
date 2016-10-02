@@ -3,7 +3,7 @@ using UIKit;
 using Xamarin;
 using Xamarin.Forms;
 using CompanySearch.Instrumentation;
-using HockeyApp;
+using HockeyApp.iOS;
 using System;
 using System.Threading.Tasks;
 
