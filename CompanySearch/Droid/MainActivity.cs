@@ -17,8 +17,8 @@ namespace CompanySearch.Droid
 		{
 			base.OnCreate (savedInstanceState);
 
-            HockeyApp.Android.CrashManager.Register (this, "YOUR-HOCKEYAPP-APPID", new CompanySearchCrashManagerListener());
-            HockeyApp.Android.UpdateManager.Register (this, "YOUR-HOCKEYAPP-APPID");
+            //HockeyApp.Android.CrashManager.Register (this, "YOUR-HOCKEYAPP-APPID", new CompanySearchCrashManagerListener());
+            //HockeyApp.Android.UpdateManager.Register (this, "YOUR-HOCKEYAPP-APPID");
 
             MetricService.Instance.Initialize(TargetPlatform.Android);
 

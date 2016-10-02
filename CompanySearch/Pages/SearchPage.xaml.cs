@@ -27,8 +27,6 @@ namespace CompanySearch.Pages
 
 			var company = e.SelectedItem as Company;
 
-            MetricService.Instance.Log(new CountedMetric("viewcompany", tags: new List<string> { $"name:{company.Name}" }));
-
 			await Navigation.PushAsync(new CompanyPage(company));
 
 			Companies.SelectedItem = null;

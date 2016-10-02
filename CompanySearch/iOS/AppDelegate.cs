@@ -14,11 +14,11 @@ namespace CompanySearch.iOS
 	{
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-            var manager = BITHockeyManager.SharedHockeyManager;
-            manager.Configure("YOUR-HOCKEYAPP-APPID");
-            manager.CrashManager.CrashManagerStatus = BITCrashManagerStatus.AutoSend;
-            manager.StartManager();
-            manager.Authenticator.AuthenticateInstallation();
+            //var manager = BITHockeyManager.SharedHockeyManager;
+            //manager.Configure("YOUR-HOCKEYAPP-APPID");
+            //manager.CrashManager.CrashManagerStatus = BITCrashManagerStatus.AutoSend;
+            //manager.StartManager();
+            //manager.Authenticator.AuthenticateInstallation();
 
             MetricService.Instance.Initialize(TargetPlatform.iOS);
 
