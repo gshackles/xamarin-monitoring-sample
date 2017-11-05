@@ -6,14 +6,14 @@ using Xamarin.Forms.Platform.iOS;
 
 namespace CompanySearch.iOS.Renderers
 {
-	public class EmptyFooterListViewRenderer : ListViewRenderer
-	{
-		protected override void OnElementChanged(ElementChangedEventArgs<ListView> e)
-		{
-			base.OnElementChanged(e);
+    public class EmptyFooterListViewRenderer : ListViewRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<ListView> e)
+        {
+            base.OnElementChanged(e);
 
-			if (Control != null)
-				Control.TableFooterView = new UIView();
-		}
-	}
+            if (Control != null)
+                Control.TableFooterView = new UIView();
+        }
+    }
 }

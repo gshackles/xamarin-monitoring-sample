@@ -1,32 +1,20 @@
 ﻿using Foundation;
 using UIKit;
-using Xamarin;
 using Xamarin.Forms;
-using CompanySearch.Instrumentation;
-using HockeyApp.iOS;
-using System;
-using System.Threading.Tasks;
+using Xamarin.Forms.Platform.iOS;
 
 namespace CompanySearch.iOS
 {
-	[Register("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
-	{
-		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-		{
-            var manager = BITHockeyManager.SharedHockeyManager;
-            manager.Configure("YOUR-HOCKEYAPP-APPID");
-            manager.CrashManager.CrashManagerStatus = BITCrashManagerStatus.AutoSend;
-            manager.StartManager();
-            manager.Authenticator.AuthenticateInstallation();
+    [Register("AppDelegate")]
+    public partial class AppDelegate : FormsApplicationDelegate
+    {
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
+        {
+            Forms.Init();
 
-            MetricService.Instance.Initialize(TargetPlatform.iOS);
+            LoadApplication(new App());
 
-			Forms.Init();
-
-			LoadApplication(new App());
-
-			return base.FinishedLaunching(app, options);
-		}
-	}
+            return base.FinishedLaunching(uiApplication, launchOptions);
+        }
+    }
 }

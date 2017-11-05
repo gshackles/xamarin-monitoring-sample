@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Company Search</string>
+	<string>CompanySearch</string>
 	<key>CFBundleName</key>
-	<string>Company Search</string>
+	<string>CompanySearch</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.gregshackles.companysearch</string>
+	<string>com.gregshackles.CompanySearch</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -41,10 +41,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
 	</dict>
 </dict>

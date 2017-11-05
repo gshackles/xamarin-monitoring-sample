@@ -18,32 +18,26 @@ namespace CompanySearch.Instrumentation
 		private readonly ConcurrentQueue<MetricBase> _metrics = new ConcurrentQueue<MetricBase>(); 
         private readonly MetricsApiClient _metricsClient = new MetricsApiClient();
 		private bool _isSyncing = true;
-        private TargetPlatform _platform = TargetPlatform.Other;
 
 		public static readonly MetricService Instance = new MetricService();
 
-		public void Log(MetricBase timedMetric)
+        public void Log(MetricBase timedMetric)
 		{
 			Debug.WriteLine($"logging metric {timedMetric}");
 
 			_metrics.Enqueue(timedMetric);
 		}
 
-        public void Initialize(TargetPlatform platform)
-		{
-            _platform = platform;
+        public void Initialize() => Task.Run(async () =>
+        {
+            while (_isSyncing)
+            {
+                await Task.Delay(FlushIntervalSeconds * 1000).ConfigureAwait(false);
+                await Flush().ConfigureAwait(false);
+            }
+        });
 
-			Task.Run(async () =>
-			{
-				while (_isSyncing)
-				{
-                    await Task.Delay(FlushIntervalSeconds*1000).ConfigureAwait(false);
-                    await Flush().ConfigureAwait(false);
-				}
-			});
-		}
-
-		internal async Task Flush()
+        internal async Task Flush()
 		{
 			var metrics = new List<MetricBase>();
 
@@ -72,7 +66,7 @@ namespace CompanySearch.Instrumentation
 
                 await _metricsClient.SendMetrics(
                     new MetricsPost(
-                        _platform, 
+                        Device.RuntimePlatform, 
                         metrics.OfType<TimedMetricBase>().ToList(),
                         metrics.OfType<CountedMetric>().ToList())).ConfigureAwait(false);
 

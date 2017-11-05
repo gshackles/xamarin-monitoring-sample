@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using CompanySearch.Instrumentation.Metrics;
-using Xamarin.Forms;
 
 namespace CompanySearch.Instrumentation.Api
 {
@@ -10,9 +9,9 @@ namespace CompanySearch.Instrumentation.Api
         public IList<TimedMetricBase> Timed { get; }
         public IList<CountedMetric> Counted { get; }
 
-        public MetricsPost(TargetPlatform platform, IList<TimedMetricBase> timedMetrics, IList<CountedMetric> countedMetrics)
+        public MetricsPost(string platform, IList<TimedMetricBase> timedMetrics, IList<CountedMetric> countedMetrics)
         {
-            OS = platform.ToString();
+            OS = platform;
             Timed = timedMetrics;
             Counted = countedMetrics;
         }

@@ -1,4 +1,5 @@
 ﻿using CompanySearch.Pages;
+using CompanySearch.Instrumentation;
 using Xamarin.Forms;
 
 namespace CompanySearch
@@ -8,6 +9,8 @@ namespace CompanySearch
 		public App()
 		{
 			MainPage = new NavigationPage(new SearchPage());
+
+            MetricService.Instance.Initialize();
 		}
 	}
 }
