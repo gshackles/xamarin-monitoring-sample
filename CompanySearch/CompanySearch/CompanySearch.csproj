@@ -7,5 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.38779" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Analytics" Version="0.17.1" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Crashes" Version="0.17.1" />
   </ItemGroup>
 </Project>
