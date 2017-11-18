@@ -6,6 +6,7 @@ using CompanySearch.Models;
 using Newtonsoft.Json;
 using CompanySearch.Instrumentation;
 using CompanySearch.Instrumentation.Metrics;
+using Microsoft.Azure.Mobile.Analytics;
 
 namespace CompanySearch.Services
 {
@@ -31,6 +32,7 @@ namespace CompanySearch.Services
 //                throw new CompanyTooAwesomeException();
 
             MetricService.Instance.Log(new CountedMetric("findcompanies", tags: new List<string> { $"query:{query}" }));
+            Analytics.TrackEvent("Company Search", new Dictionary<string, string> { ["query"] = query });
 
             return JsonConvert.DeserializeObject<IEnumerable<Company>>(json);
 		}

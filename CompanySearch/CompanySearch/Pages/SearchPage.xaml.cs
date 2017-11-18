@@ -5,6 +5,7 @@ using CompanySearch.ViewModels;
 using Xamarin.Forms;
 using CompanySearch.Instrumentation;
 using CompanySearch.Instrumentation.Metrics;
+using Microsoft.Azure.Mobile.Analytics;
 
 namespace CompanySearch.Pages
 {
@@ -28,6 +29,7 @@ namespace CompanySearch.Pages
 			var company = e.SelectedItem as Company;
 
             MetricService.Instance.Log(new CountedMetric("viewcompany", tags: new List<string> { $"name:{company.Name}" }));
+            Analytics.TrackEvent("Company Viewed", new Dictionary<string, string> { ["name"] = company.Name });
 
 			await Navigation.PushAsync(new CompanyPage(company));
 
