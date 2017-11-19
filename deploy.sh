@@ -26,7 +26,7 @@ exitWithMessageOnError "Missing node.js executable, please install node.js, if a
 # Setup
 # -----
 
-DEPLOYMENT_SOURCE="evolvebot"
+DEPLOYMENT_SOURCE="confbot"
 SCRIPT_DIR="${BASH_SOURCE[0]%\\*}"
 SCRIPT_DIR="${SCRIPT_DIR%/*}"
 ARTIFACTS=$SCRIPT_DIR/../artifacts
