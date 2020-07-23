@@ -1,6 +1,6 @@
 # Xamarin Monitoring Sample
 
-[![Build status](https://build.appcenter.ms/v0.1/apps/ca77565a-4269-4223-a9ac-8c0594a795f8/branches/master/badge)](https://appcenter.ms)
+[![Build status](https://build.appcenter.ms/v0.1/apps/ca77565a-4269-4223-a9ac-8c0594a795f8/branches/main/badge)](https://appcenter.ms)
 
 This is a sample application for my talks on monitoring Xamarin apps.
 
